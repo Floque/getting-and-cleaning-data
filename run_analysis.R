@@ -1,9 +1,6 @@
-# Clean up workspace
-rm(list=ls())
+# 1. Merging the training and the test sets to create one data set.
 
-# 1. Merge the training and the test sets to create one data set.
-
-#set working directory 
+#set working directory, Of Course choose your own directory, where the dataset is saved
 setwd('F:/Praktikum Helmholtz/R/Coursera/Getting and Cleaning Data Week 4/UCI HAR Dataset')
 
 # Read in the data from files
@@ -19,7 +16,7 @@ colnames(subjectTrain)  = "subjectId"
 colnames(xTrain)        = features[,2] 
 colnames(yTrain)        = "activityId"
 
-# cCreate the final training set by merging yTrain, subjectTrain, and xTrain
+# Create the final training set by merging yTrain, subjectTrain, and xTrain
 trainingData = cbind(yTrain,subjectTrain,xTrain)
 
 # Read in the test data
