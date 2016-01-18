@@ -1,7 +1,10 @@
-# 1. Merging the training and the test sets to create one data set.
+# Clean up workspace
+rm(list=ls())
 
-#set working directory, Of Course choose your own directory, where the dataset is saved
-setwd('F:/Praktikum Helmholtz/R/Coursera/Getting and Cleaning Data Week 4/UCI HAR Dataset')
+# 1. Merge the training and the test sets to create one data set.
+
+#set working directory 
+setwd('I:/Praktikum Helmholtz/R/Coursera/Getting and Cleaning Data Week 4/UCI HAR Dataset')
 
 # Read in the data from files
 features     = read.table('./features.txt',header=FALSE) #imports features.txt
@@ -16,7 +19,7 @@ colnames(subjectTrain)  = "subjectId"
 colnames(xTrain)        = features[,2] 
 colnames(yTrain)        = "activityId"
 
-# Create the final training set by merging yTrain, subjectTrain, and xTrain
+# cCreate the final training set by merging yTrain, subjectTrain, and xTrain
 trainingData = cbind(yTrain,subjectTrain,xTrain)
 
 # Read in the test data
@@ -92,3 +95,4 @@ tidyData    = merge(tidyData,activityType,by='activityId',all.x=TRUE)
 
 # Export the tidyData set 
 write.table(tidyData, './tidyData.txt',row.names=FALSE,sep='\t')
+
